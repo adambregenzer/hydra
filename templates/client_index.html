@@ -1,0 +1,39 @@
+$def with (server, attacks)
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="Binding" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="Content-Language" content="en"/>
+        <meta http-equiv="refresh" content="2">
+        <title>Distributed Attack</title>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+        <link rel="stylesheet" type="text/css" media="screen,print" href="${prefix}/static/style/main.css"/>
+    </head>
+    <body id="Page">
+        <div id="Body">
+        Linked to server: $server.url<br />
+        <table>
+        <tr><th colspan="3">Running Attacks:</th></tr>
+        $for attack in attacks.values():
+            <tr>
+            <td colspan="3"><h4>$attack.attack_id</h4></td>
+            </tr>
+            <tr>
+            <td>$attack.attk_mod_name<br />
+            $if attack.running:
+                RUNNING
+            $else:
+                FINISHED
+            </td>
+            <td>
+            $if attack.status is not None:
+                $for stat_name in attack.status:
+                    ${stat_name} - ${str(attack.status[stat_name])}<br />
+            </td>
+            </tr>
+        </table>
+        </div>
+    </body>
+</html>

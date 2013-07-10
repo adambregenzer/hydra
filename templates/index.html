@@ -1,0 +1,35 @@
+$def with (modules, clients)
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="Binding" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="Content-Language" content="en"/>
+        <title>Distributed Attack</title>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+        <link rel="stylesheet" type="text/css" media="screen,print" href="${prefix}/static/style/main.css"/>
+    </head>
+    <body id="Page">
+        <div id="Body">
+        <h2>Start a New Attack</h2>
+        <form method="POST" name="select_modules" id="select_modules">
+        $for module in modules:
+            <div class="radio_option">
+                <input onChange="document.select_modules.submit();" style="display: none;" type="radio" id="radio_$module[0]" name="attk_mod" value="$module[0]" />
+                <dl><label for="radio_$module[0]"><dt>$module[0]</dt><dd>$module[1]</dd></label></dl>
+            </div>
+        <input style="display: none;" type="submit" name="next" value="Next &gt;" />
+        </form><br /><br />
+        <h2>Registered Clients</h2>
+        <table>
+        <tr><th>Client ID</th><th>URL</th></tr>
+        $for client in clients.values():
+            <tr>
+            <td>$client.id</td>
+            <td>$client.url</td>
+            </tr>
+        </table>
+        </div>
+    </body>
+</html>

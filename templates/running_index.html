@@ -1,0 +1,54 @@
+$def with (attack, stats, block_ids, clients)
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="Binding" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="Content-Language" content="en"/>
+        <meta http-equiv="refresh" content="2">
+        <title>Distributed Attack</title>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+        <link rel="stylesheet" type="text/css" media="screen,print" href="${prefix}/static/style/main.css"/>
+    </head>
+    <body id="Page">
+        <div id="Body">
+        <h2>Attack Running</h2>
+        $if attack.result is not None:
+            <div id="answer">Answer found: $attack.result</div>
+        Attack ID: $attack.attack_id<br />
+        Attack Module: $attack.attack_module<br />
+        Total Attack Blocks: $moneyfmt(stats.total_blocks, 0, '')<br />
+        Running for $moneyfmt(stats.seconds_elapsed, 2, '') seconds<br />
+        <h6>Completed $moneyfmt(stats.records_completed, 0, '', ',', '') records at $moneyfmt(stats.rps, 2, '') rps</h6><br />
+        <table>
+        $for block_id in block_ids:
+            <tr><td>
+            $if attack.blocks[block_id][0] is not None:
+                Block $block_id is still being processed.
+                <br />
+                $if attack.blocks[block_id][1] is not None:
+                    Processed $moneyfmt(attack.blocks[block_id][1]['records_tested'], 0, '', ',', '')
+                     of $moneyfmt(attack.blocks[block_id][1]['total_records'], 0, '', ',', '') records.
+            $else:
+                Block $block_id is complete.
+            </td></tr>
+        </table><br /><br />
+        <h2>Registered Clients</h2>
+        <table>
+        <tr><th>Client ID</th><th>Block ID</th><th>Active</th></tr>
+        $for client in clients.values():
+            <tr>
+            <td>$client.id</td>
+            <td>$client.block_id</td>
+            $if client.is_active():
+                <td>yes</td>
+            $else:
+                <td>no</td>
+            </tr>
+        </table>
+        $if attack.end_time is not None:
+            <br /><a class="button" href="reset">Reset</a>
+        </div>
+    </body>
+</html>

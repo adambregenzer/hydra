@@ -1,0 +1,48 @@
+$def with (init_args, start_args, attk_mod)
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="Binding" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="Content-Language" content="en"/>
+        <title>Distributed Attack</title>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+        <link rel="stylesheet" type="text/css" media="screen,print" href="${prefix}/static/style/main.css"/>
+    </head>
+    <body id="Page">
+        <div id="Body">
+        <h2>Start a New Attack using Module: $attk_mod</h2>
+        <form method="POST" action="set_args">
+        <input type="hidden" name="attk_mod" value="$attk_mod">
+        <table class="attk_args">
+        <tr><th colspan="3">Attack Initilization</th></tr>
+        $var i: 0 \
+        $for arg in init_args:
+            $var arg_out: $:arg_input(arg, init_args[arg]) \
+            $if self.arg_out.strip() != '':
+                $var i: ${int(self.i) + 1} \
+                <tr class=" \
+                $if int(self.i) % 2: odd \
+                $else: even \
+                ">
+                $:self.arg_out
+                </tr>
+        <tr><th colspan="3">Attack Source</th></tr>
+        $var i: 0 \
+        $for arg in start_args:
+            $var arg_out: $:arg_input(arg, start_args[arg]) \
+            $if self.arg_out.strip() != '':
+                $var i: ${int(self.i) + 1} \
+                <tr class=" \
+                $if int(self.i) % 2: odd \
+                $else: even \
+                ">
+                $:self.arg_out
+                </tr>
+        </table>
+        <input id="attk_start" class="button" type="submit" name="Submit" value="Start" />
+        </form>
+        </div>
+    </body>
+</html>

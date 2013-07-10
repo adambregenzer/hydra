@@ -1,0 +1,279 @@
+/** Normalization **/
+address,caption,cite,code,dfn,em,strong,th,var {
+	font-style: normal;
+	font-weight: normal;
+}
+caption {
+	text-align: left;
+}
+th {
+	text-align: center;
+	font-weight: bold;
+}
+q:before,q:after {
+	content: '';
+}
+form {
+    display: inline;
+}
+fieldset, table, img {
+    border-width: 0px;
+    display: inline;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+html,body,p,input,textarea,select,table,tr,th,td,ul,ol,li,dl,dd,dt,h1,h2,h3,h4,h5,h6,div,pre,form,fieldset,blockquote {
+    font-size:   11px;
+    font-family: sans-serif;
+
+    background-color: transparent;
+
+    margin-top:     0px;
+    padding-top:    0px;
+    margin-right:   0px;
+    padding-right:  0px;
+    margin-bottom:  0px;
+    padding-bottom: 0px;
+    margin-left:    0px;
+    padding-left:   0px;
+    color: #000000;
+}
+html, body, select, input, textarea {
+    background-color: white;
+}
+abbr, acronym {
+    border-bottom: 1px dashed;
+
+    cursor: help;
+}
+dl {
+    display: inline;
+}
+dd {
+    margin-left: 10px;
+}
+p  {
+    margin-top:    10px;
+    margin-bottom: 10px;
+}
+
+
+/** Headers **/
+h1 {
+    font-size:     18px;
+    font-weight:   bold;
+
+    margin-top:    12px;
+}
+h2 {
+    font-size:     14px;
+    font-weight:   bold;
+
+    margin-top:    25px;
+    margin-bottom: 10px;
+}
+h3 {
+    font-size:     14px;
+    font-weight:   bold;
+
+    margin-top:    6px;
+}
+h4 {
+    font-size:     12px;
+    font-weight:   bold;
+
+    margin-top:    3px;
+}
+
+
+/** Links **/
+a, a:hover, a:visited {
+    color: #000000;
+    text-decoration: underline;
+}
+
+
+/** Classes **/
+.centered {
+    text-align: center;
+}
+.top {
+    vertical-align: top !important;
+}
+.hidden {
+    display: none;
+}
+.processing {
+    color: #aaaaaa;
+    cursor: not-allowed;
+}
+.disabled {
+    color: #aaaaaa;
+    cursor: not-allowed;
+}
+input[disabled] {
+    color: #aaaaaa;
+    cursor: not-allowed;
+}
+.warning {
+    color: red;
+    font-size: +1em;
+}
+
+/** Layout **/
+#Binding {
+    margin: 40px auto 0;
+    max-width: 570px;
+}
+/*
+#Binding {
+    margin-right:10%;
+    margin-left:10%;
+    margin-top:5%;
+    padding-bottom:10px;
+    background:#fff;
+    border:1px solid #000;
+    text-align:left;
+    min-width:100px;
+}
+#Page {
+    float: left;
+    width: 100%;
+}
+#PageHeader {
+    height: 25px;
+    line-height: 25px;
+    vertical-align: bottom;
+
+    margin-bottom: 20px;
+}
+#PageHeader img {
+    float: left;
+    margin-right: 5px;
+}
+#PageHeader h1 {
+    margin: 0px;
+    padding: 0px;
+
+    color: #b81c32;
+}
+#PageFooter {
+    font-size: 9px;
+    border-top: 1px solid #931616;
+    margin-top: 15px;
+    text-align: center;
+}
+#Interior {
+    margin-left: 160px;
+}
+*/
+
+
+/** Errors **/
+#Errors {
+    margin: 0px;
+    padding: 10px;
+}
+#Errors li {
+    margin: 0px;
+
+    font-weight: bold;
+    color: #ff0000;
+    list-style-type: none;
+}
+
+
+/** Form Fields **/
+input:focus, select:focus, textarea:focus {
+    background-color: #ffffaa;
+}
+input, select, textarea {
+    padding: 1px;
+
+    border: 1px solid #9397bf;
+}
+input[type=radio] {
+    vertical-align: middle !important;
+    margin-left: 2px;
+    margin-right: 5px;
+}
+input[type=text], input[type=password], textarea {
+    width: 138px;
+}
+input[type=text].time {
+    width: 15px;
+}
+select {
+    width: 142px;
+}
+
+
+/** Link Buttons **/
+a.button, a.button:hover, a.button:active {
+    text-decoration: none;
+}
+a.button {
+    padding: 2px 4px 2px 4px;
+
+    border: 1px solid #9397bf;
+}
+
+input[type=submit]:hover, a.button:hover {
+    background-color: #dde8ff;
+    color: #24325d;
+}
+input[type=submit]:active, a.button:active {
+    background-color: #24325d;
+    color: #d6e0ff;
+}
+
+
+/* Radio Lists */
+div.radio_option {
+    padding: 4px;
+}
+div.radio_option:hover {
+    background-color: #d6e0ff;
+}
+div.radio_option dl {
+    display: inline;
+}
+div.radio_option dt {
+    display: inline;
+    font-weight: bold;
+}
+div.radio_option dd {
+    font-size: 9px;
+}
+
+
+table tr.odd {
+    background-color: #eaefff;
+}
+
+table td {
+    padding: 4px;
+}
+table.attk_args td {
+    padding: 2px;
+}
+
+table th {
+    padding: 4px;
+    padding-top: 15px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: left;
+}
+
+#attk_start {
+    display: block;
+    margin: 15px 0px 15px 0px ;
+}
+
+div#answer {
+    font-size: 16px;
+    font-weight: bold;
+    color: red;
+    margin: 10px;
+}
